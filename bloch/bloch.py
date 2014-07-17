@@ -6,7 +6,7 @@ from bloch.bloch_simulator import bloch_c
 from bloch.bloch_processing import process_gradient_argument, process_time_points, process_off_resonance_arguments
 from bloch.bloch_processing import process_positions, process_magnetization, reshape_matrices
 
-def bloch(b1, gr, tp, t1, t2, df, dp, mode, mx=None, my=None, mz=None):
+def bloch(b1, gr, tp, t1, t2, df, dp, mode=0, mx=None, my=None, mz=None):
     """
     Bloch simulation of rotations due to B1, gradient and
 	off-resonance, including relaxation effects.  At each time

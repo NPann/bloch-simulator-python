@@ -1,5 +1,9 @@
 from distutils.core import setup, Extension
 import numpy.distutils.misc_util
+import os
+
+
+#os.environ["CC"] = "cygwin"
 
 setup(
         name = "Bloch Simulator C Extension",

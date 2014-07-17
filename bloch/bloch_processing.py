@@ -74,9 +74,10 @@ def process_magnetization(mx_0, my_0, mz_0, rf_length, freq_pos_count, mode):
     Returns mx, my, and mz vectors allocated based on input parameters.
     """
 
-    out_points = 1
-    if (2 == mode) or (3 == mode):
+    if 2 & mode:
         out_points = rf_length
+    else:
+        out_points = 1
     fn_out_points = out_points * freq_pos_count
     mx = np.zeros(fn_out_points)
     my = np.zeros(fn_out_points)

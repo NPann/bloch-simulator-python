@@ -1,6 +1,7 @@
 *.swo
 *.so
 *.o
+*.pyd
 build
 matlab
 *.pyc

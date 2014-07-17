@@ -35,18 +35,24 @@ b1 = np.array([0,  np.pi / 180 * alpha / trf / gamma / 2 / np.pi,  0])  # (Gauss
 
 # Calculate steady state for comparison
 [mxss, myss, mzss] = bloch(b1, 0. * b1, t, T1, T2, freq, 0., 1)
+mss = 1j * myss
+mss += mxss
 
 # Start with alpha/2 , from equilibrium
 [mx, my, mz] = bloch(np.array(1j * np.max(b1)/2), 0., trf, T1, T2, freq, 0, 0)
 
 # # Repeat pulse sequence
+pl.ion()
 for n in range(0,N):
     [mx, my, mz] = bloch(b1, 0*b1, t, T1, T2, freq, 0, 0, mx, my, mz)
 
     sig = mx + 1j * my
     pl.subplot(2, 1, 1)
-    pl.plot(freq, np.abs(sig))
+    pl.plot(freq, np.hstack((np.abs(sig), np.abs(mss))))
+    pl.ylabel('Magnitude')
     pl.subplot(2, 1, 2)
-    pl.plot(freq, np.angle(sig))
-
-pl.show()
+    pl.plot(freq, np.hstack((np.angle(sig) / np.pi, np.angle(mss) / np.pi)))
+    pl.ylabel('Phase / pi')
+    pl.show()
+    input("Press [enter] to continue.")
+    pl.clf()
