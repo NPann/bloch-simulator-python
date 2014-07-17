@@ -47,11 +47,7 @@ def bloch(b1, gr, tp, t1, t2, df, dp, mode, mx=None, my=None, mz=None):
     pos_size = 1
     if isinstance(dp, np.ndarray):
         pos_size = dp.shape[0]
-    mx, my, mz = process_magnetization(mx, my, mz, b1.size, nf*pos_size, mode)
-    if 2 == mode:
-        ntout = b1.size
-    else:
-        ntout = 1
+    mx, my, mz, ntout = process_magnetization(mx, my, mz, b1.size, nf*pos_size, mode)
     bloch_c(b1.real, b1.imag, grx, gry, grz, tp, b1.size, t1, t2, df, nf, dx, dy, dz, n_pos, mode, mx, my, mz)
     reshape_matrices(mx, my, mz, ntout, n_pos, nf)
     return mx, my, mz
