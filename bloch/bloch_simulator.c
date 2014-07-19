@@ -79,8 +79,8 @@ static PyMethodDef module_methods[] = {
 };
 
 static struct PyModuleDef bloch_module = {
-    PyModuleDef_HEAD_INIT, 
-    "bloch_simulator", 
+    PyModuleDef_HEAD_INIT,
+    "bloch_simulator",
     module_docstring,
     -1,
     module_methods

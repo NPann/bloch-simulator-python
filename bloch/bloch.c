@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define GAMMA   26753.0
+#define GAMMA   26752.2
 #define TWOPI	6.283185
 
 #define DEBUG

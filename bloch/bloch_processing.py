@@ -11,12 +11,12 @@ def process_gradient_argument(gr):
     if isinstance(gr, np.ndarray):
         if 1 == len(gr.shape):
             return gr, np.zeros(gr.size), np.zeros(gr.size)
-        elif 3 == gr.shape[0]:
-            return gr[0], gr[1], gr[2]
-        elif 2 == gr.shape[0]:
-            return gr[0], gr[1], np.zeros(gr.shape[1])
+        elif 3 == gr.shape[1]:
+            return gr[:, 0], gr[:, 1], gr[:, 2]
+        elif 2 == gr.shape[1]:
+            return gr[:, 0], gr[:, 1], np.zeros(gr.shape[:, 0])
         else:
-            return gr[0], np.zeros(gr.shape[1]), np.zeros(gr.shape[1])
+            return gr[:, 0], np.zeros(gr.shape[:, 0]), np.zeros(gr.shape[:, 0])
     else:
         return np.array(gr), np.array(0.),  np.array(0.)
 

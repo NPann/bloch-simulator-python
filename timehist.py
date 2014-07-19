@@ -10,6 +10,10 @@ import numpy as np
 import pylab as pl
 from IPython import get_ipython
 
+import time
+
+
+
 # Third-party libraries
 from bloch.bloch import bloch
 
@@ -24,6 +28,8 @@ def msinc(n, m):
     ms = ms * 4 * m / n
     return ms
 
+
+
 # Setup parameters
 b1 = np.hstack((np.zeros((500, )), msinc(250, 2), np.zeros((500, ))))
 gr = np.hstack((np.zeros(375, ), - np.ones((125, )), np.ones((250, )), - np.ones((125, )), np.zeros((375, ))))
@@ -37,6 +43,7 @@ t2 = .2
 
 # Run bloch simulation
 [mx, my, mz] = bloch(b1, gr, tp, 1., .2, df, dp, 3)
+
 #mxy = mx + 1j * my
 
 # Display

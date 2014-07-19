@@ -20,7 +20,7 @@ def bloch(b1, gr, tp, t1, t2, df, dp, mode=0, mx=None, my=None, mz=None):
 		tp = (Mx1) time duration of each b1 and gr point, in seconds,
 				or 1x1 time step if constant for all points
 				or monotonically INCREASING endtime of each
-				interval..
+				interval.
                 ntime = Number of time points
 		t1 = T1 relaxation time in seconds.
 		t2 = T2 relaxation time in seconds.
